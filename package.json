@@ -1,0 +1,49 @@
+{
+  "name": "file-metadata-service",
+  "version": "0.0.1",
+  "description": "Service that returns file metadata from file uploaded",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server/index.js",
+    "webpack": "./node_modules/.bin/webpack -w",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamtarrant/file-metadata-service.git"
+  },
+  "keywords": [
+    "file",
+    "metadata"
+  ],
+  "author": "Adam Tarrant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamtarrant/file-metadata-service/issues"
+  },
+  "homepage": "https://github.com/adamtarrant/file-metadata-service#readme",
+  "dependencies": {
+    "express": "4.16.2",
+    "mongodb": "^3.0.2",
+    "multer": "^1.3.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "engines": {
+    "node": "9.5.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.10",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9",
+    "jest": "^22.4.2"
+  }
+}
