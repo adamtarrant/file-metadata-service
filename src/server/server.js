@@ -1,4 +1,4 @@
-const app = require('./app');
+const app = require('./app').app;
 const config = process.env.NODE_ENV == 'production' ? require('./config/config_prod.js') : require('./config/config_dev.js');
 
 //Listening
