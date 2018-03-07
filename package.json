@@ -4,7 +4,7 @@
   "description": "Service that returns file metadata from file uploaded",
   "main": "server.js",
   "scripts": {
-    "start": "node src/server/index.js",
+    "start": "node src/server/server.js",
     "webpack": "../../node_modules/.bin/webpack -w",
     "test": "jest"
   },

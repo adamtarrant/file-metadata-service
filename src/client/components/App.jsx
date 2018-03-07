@@ -10,8 +10,16 @@ class FileUploader extends Component {
             fileToUpload: null
         };
         this.handleFileUpload = this.handleFileUpload.bind(this);
+        this.handleFileChange = this.handleFileChange.bind(this);
       }
       
+      handleFileChange(event) {         
+          this.setState({
+                fileOutput: this.state.fileOutput,
+                fileToUpload: event.target.value.split('\\').pop()
+          });
+      }
+
       handleFileUpload(event) {
         event.preventDefault();
         const fileInput = document.getElementById('fileInput');
@@ -40,10 +48,12 @@ class FileUploader extends Component {
       
       render() {
         return (
-          <div>
-            <form type="multipart/form-data" onSubmit={this.handleFileUpload}>
-                <input type="file" id="fileInput" />
-                <button type="submit">Upload</button>
+          <div className="form-output-container">
+            <form className="upload-form" type="multipart/form-data" onSubmit={this.handleFileUpload}>
+                <input type="file" id="fileInput" onChange={this.handleFileChange}/>
+                <label for="fileInput"><i class="fas fa-file"></i>Choose file</label>
+                <p>{this.state.fileToUpload}</p>
+                <button className={this.state.fileToUpload == null ? "button-disabled" : ""} type="submit"><i class="fas fa-upload"></i>Upload</button>
             </form>
             <FileOutput fileOutput={this.state.fileOutput}/>
           </div>
@@ -60,7 +70,7 @@ class FileOutput extends Component {
 
       render() {
         return (
-           <div> 
+           <div className="output"> 
           {this.props.fileOutput !== null && <pre>{JSON.stringify(this.props.fileOutput, null, '\t')}</pre>}
           </div>
           );
@@ -77,7 +87,7 @@ export default class App extends Component {
   
   render() {
     return (
-      <div>
+      <div className="main-container">
           <h1>File Metadata Service</h1>
           <FileUploader />
           <Footer />

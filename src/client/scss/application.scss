@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Krona+One|Poppins|Roboto+Mono');
+
+
+
+body {
+  background: #1CC89D;
+  font-size: 12px;
+  margin: 0;
+  color: #eee;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0 0 0;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  font-family: 'Roboto+Mono', monospace;
+  margin: 0;
+}
+
+.form-output-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  width: 50vw;
+  background-color: #FFB724;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px grey;
+  margin: auto;
+}
+
+.upload-form {
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  p {
+    background-color: #8971BC;
+    font-size: 1.25em;
+    font-weight: 700;
+  }
+
+  label, button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #1CC89D;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px grey;
+    border: none;
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+    font-size: 1.25em;
+    font-weight: 700;
+    &:hover {
+      box-shadow: none;
+      background-color: #32d3ab;
+      cursor: pointer;
+    }
+    svg {
+      margin: 10px;
+    }
+  }
+
+  .button-disabled {
+    background-color:grey;
+    color: darkgray;
+    &:hover {
+      box-shadow: none;
+      background-color: grey;
+      cursor: not-allowed;
+    }
+  }
+}
+
