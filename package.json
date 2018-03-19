@@ -1,6 +1,6 @@
 {
   "name": "file-metadata-service",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Service that returns file metadata from file uploaded",
   "main": "server.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "express": "4.16.2",
     "mongodb": "^3.0.2",
     "multer": "^1.3.0",
+    "normalize.css": "^8.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },

@@ -32,7 +32,7 @@ class FileUploader extends Component {
             method: 'post',
             body: formData
         };
-        let relUrl = '/uploadfile'
+        let relUrl = '/uploadfile';
 
         fetch(relUrl, options)
         .then(response => response.text())
