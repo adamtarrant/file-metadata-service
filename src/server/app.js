@@ -38,13 +38,20 @@ app.all('/*', (req, res) => {
 
 //Named function declarations
 function getFileMetadata(fileObj) {
-    console.log(fileObj);
+    console.log(fileObj.path);
     let fileProps = ["originalname", "encoding", "mimetype", "size"];
     let responseObj = {};
     fileProps.forEach(fileProp => {
         responseObj[fileProp] = fileObj[fileProp];
     });
     console.log(responseObj);
+    fs.unlink(fileObj.path, err => {
+        if(err){
+            return console.log(err);
+        } else {
+            console.log(fileObj.filename+' is deleted');
+        }
+    });
     return JSON.stringify(responseObj);
 }
 
