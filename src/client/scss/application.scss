@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Krona+One|Poppins|Roboto+Mono');
 
-
+$main-bg-color: #1CC89D;
+$main-text-color: #eee;
+$main-fg-color: #FFB724;
+$button-hl-color: #32d3ab;
+$file-bg-color: #8971BC;
+$output-bg-color: #8971BC; 
 
 body {
-  background: #1CC89D;
+  background: $main-bg-color;
   font-size: 12px;
   margin: 0;
-  color: #eee;
+  color: $main-text-color;
 }
 
 h1 {
@@ -29,14 +34,14 @@ h1 {
   align-items: center;
   height: 30vh;
   width: 50vw;
-  background-color: #FFB724;
+  background-color: $main-fg-color;
   border-radius: 10px;
   box-shadow: 2px 2px 5px grey;
-  margin: auto;
+  margin: 10vh auto 0 auto;
 }
 
 .upload-form {
-  color: #eee;
+  color: $main-text-color;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,16 +57,26 @@ h1 {
   }
 
   p {
-    background-color: #8971BC;
+    background-color: $file-bg-color;
     font-size: 1.25em;
     font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 0px;
+    transition: width 0.5s;
+  }
+
+  p.expanded {
+    width: 150px;
+    padding: 5px;
   }
 
   label, button {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: $main-text-color;
     background-color: #1CC89D;
     border-radius: 5px;
     box-shadow: 2px 2px 5px grey;
@@ -73,12 +88,16 @@ h1 {
     font-weight: 700;
     &:hover {
       box-shadow: none;
-      background-color: #32d3ab;
+      background-color: $button-hl-color;
       cursor: pointer;
     }
     svg {
       margin: 10px;
     }
+  }
+
+  .expanded-button {
+    margin: 5px 0;
   }
 
   .button-disabled {
@@ -92,3 +111,16 @@ h1 {
   }
 }
 
+.output {
+  display: flex;
+  justify-content: center;
+  background-color: $output-bg-color;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 45vw;
+  height: 0px;
+  transition: height 0.5s;
+  &.output-expanded{
+    height: 110px;
+  }
+}

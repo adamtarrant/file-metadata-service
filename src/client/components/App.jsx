@@ -48,13 +48,15 @@ class FileUploader extends Component {
       
       render() {
         return (
+        <div className="main-container">
           <div className="form-output-container">
             <form className="upload-form" type="multipart/form-data" onSubmit={this.handleFileUpload}>
                 <input type="file" id="fileInput" onChange={this.handleFileChange}/>
-                <label for="fileInput"><i class="fas fa-file"></i>Choose file</label>
-                <p>{this.state.fileToUpload}</p>
-                <button className={this.state.fileToUpload == null ? "button-disabled" : ""} type="submit"><i class="fas fa-upload"></i>Upload</button>
+                <label className={this.state.fileToUpload !== null ? "expanded-button" : ""} for="fileInput"><i class="fas fa-file"></i>Choose file</label>
+                <p className={this.state.fileToUpload !== null ? "expanded" : ""}>{this.state.fileToUpload}</p>
+                <button className={this.state.fileToUpload == null ? "button-disabled" : "expanded-button"} type="submit"><i class="fas fa-upload"></i>Upload</button>
             </form>
+            </div>
             <FileOutput fileOutput={this.state.fileOutput}/>
           </div>
           );
@@ -70,7 +72,7 @@ class FileOutput extends Component {
 
       render() {
         return (
-           <div className="output"> 
+           <div className={this.props.fileOutput !== null ? "output output-expanded" : "output"}> 
           {this.props.fileOutput !== null && <pre>{JSON.stringify(this.props.fileOutput, null, '\t')}</pre>}
           </div>
           );
