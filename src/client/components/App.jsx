@@ -7,7 +7,8 @@ class FileUploader extends Component {
         super(props);
         this.state = {
             fileOutput: null,
-            fileToUpload: null
+            fileToUpload: null,
+            loading: false
         };
         this.handleFileUpload = this.handleFileUpload.bind(this);
         this.handleFileChange = this.handleFileChange.bind(this);
@@ -22,6 +23,12 @@ class FileUploader extends Component {
 
       handleFileUpload(event) {
         event.preventDefault();
+        this.setState({
+            fileOutput: this.state.fileOutput,
+            fileToUpload: this.state.fileToUpload,
+            loading: true
+        });
+
         const fileInput = document.getElementById('fileInput');
         console.log(fileInput.files[0]);
 
@@ -39,13 +46,22 @@ class FileUploader extends Component {
         .then(data => {
             this.setState({
                 fileOutput: JSON.parse(data),
-                fileToUpload: this.state.fileToUpload
+                fileToUpload: this.state.fileToUpload,
+                loading: false
             });
             
         })
         .catch(error => console.log('error is', error));
+
+        this.setState({
+            fileOutput: this.state.fileOutput,
+            fileToUpload: this.state.fileToUpload,
+            loading: false
+        });
       }
       
+
+
       render() {
         return (
         <div className="main-container">
@@ -57,6 +73,7 @@ class FileUploader extends Component {
                 <button className={this.state.fileToUpload == null ? "button-disabled" : "expanded-button"} type="submit"><i class="fas fa-upload"></i>Upload</button>
             </form>
             </div>
+            <LoaderSpinner loading={this.state.loading}/>
             <FileOutput fileOutput={this.state.fileOutput}/>
           </div>
           );
@@ -78,6 +95,17 @@ class FileOutput extends Component {
           );
       }
 
+}
+
+class LoaderSpinner extends Component {
+    constructor(props) {
+        super(props)
+    }
+    render() {
+        return (
+            <div className={this.props.loading === true && "loader"}></div>
+        );
+    }
 }
 
 

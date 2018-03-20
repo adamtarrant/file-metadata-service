@@ -7,6 +7,18 @@ $button-hl-color: #32d3ab;
 $file-bg-color: #8971BC;
 $output-bg-color: #8971BC; 
 
+@mixin animation($name, $duration, $timing, $delay, $fillmode, $iter) {
+  -webkit-animation: $name $duration $timing $delay $fillmode $iter;
+  -moz-animation: $name $duration $timing $delay $fillmode $iter;
+  -o-animation: $name $duration $timing $delay $fillmode $iter;
+  animation: $name $duration $timing $delay $fillmode $iter;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 body {
   background: $main-bg-color;
   font-size: 12px;
@@ -125,4 +137,16 @@ h1 {
   &.output-expanded{
     height: 110px;
   }
+}
+
+.loader {
+  margin: auto;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid $output-bg-color; 
+  border-radius: 50%;
+  max-width: 50px;
+  max-height: 50px;
+  width: 8vw;
+  height: 8vw;
+  @include animation(spin, .5s, linear, 0s, none, infinite);
 }
