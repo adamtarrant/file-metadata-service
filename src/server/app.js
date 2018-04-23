@@ -1,4 +1,5 @@
 //NPM and Node Modules
+require('newrelic');
 const express = require('express');
 const https = require('https');
 const multer = require('multer');
